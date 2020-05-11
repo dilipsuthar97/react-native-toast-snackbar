@@ -1,0 +1,58 @@
+{
+	"name": "react-native-toast-snackbar",
+	"title": "React Native Toast Snackbar",
+	"version": "0.0.1",
+	"description": "Android Native Toast and Snackbar popup",
+	"main": "lib/index.js",
+	"types": "lib/index.d.ts",
+	"files": [
+		"lib",
+		"ios",
+		"android",
+		"react-native-my-library.podspec"
+	],
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"lint": "tslint 'src/**/*.{ts,tsx}'",
+		"flow": "flow src",
+		"clean": "rm -rf lib",
+		"build": "yarn run clean && tsc"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/github_account/react-native-my-library.git",
+		"baseUrl": "https://github.com/github_account/react-native-my-library"
+	},
+	"keywords": [
+		"react-native",
+		"toast",
+		"android",
+		"design"
+	],
+	"author": {
+		"name": "Dilip Suthar",
+		"email": "dbs@narola.email"
+	},
+	"license": "MIT",
+	"licenseFilename": "LICENSE",
+	"readmeFilename": "README.md",
+	"peerDependencies": {
+		"react": "^16.8.1",
+		"react-native": ">=0.60.0-rc.0 <1.0.x"
+	},
+	"devDependencies": {
+		"@babel/cli": "^7.8.4",
+		"@babel/core": "^7.9.6",
+		"@types/react-native": "^0.62.7",
+		"metro-react-native-babel-preset": "^0.59.0",
+		"prettier": "^2.0.5",
+		"react": "^16.9.0",
+		"react-native": "^0.61.5",
+		"react-native-typescript-transformer": "^1.2.13",
+		"tslint": "^6.1.2",
+		"tslint-config-prettier": "^1.18.0",
+		"tslint-config-standard": "^9.0.0",
+		"tslint-react": "^5.0.0",
+		"typescript": "^3.8.3"
+	}
+}

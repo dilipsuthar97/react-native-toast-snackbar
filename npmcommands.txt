@@ -1,0 +1,3 @@
+npm publish
+npm unpublish <pkg-name>@<version>
+npm unpublish <pkg-name> --force  // unpublish entire library
