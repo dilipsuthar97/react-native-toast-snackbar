@@ -25,6 +25,7 @@ interface SnackbarOptions {
 	textColor?: string | number;
 	backgroundColor?: string | number;
 	action?: SnackbarAction | undefined;
+	rtl?: boolean;
 }
 interface ISnackbar {
 	LENGTH_SHORT: number;

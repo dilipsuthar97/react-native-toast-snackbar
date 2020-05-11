@@ -1,6 +1,7 @@
 package com.reactlibrary;
 
 import android.graphics.Color;
+import android.os.Build;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -86,18 +87,27 @@ public class MyLibraryModule extends ReactContextBaseJavaModule {
         String message = getOptionValue(options, "message", "");
         int duration = getOptionValue(options, "duration", Snackbar.LENGTH_SHORT);
         int textColor = getOptionValue(options, "textColor", Color.WHITE);
+        boolean rtl = getOptionValue(options, "rtl", false);
 
         Snackbar snackbar = Snackbar.make(view, message, duration);
         View snackbarView = snackbar.getView();
 
+        // RTL support
+        if (rtl && Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            snackbarView.setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
+            snackbarView.setTextDirection(View.TEXT_DIRECTION_RTL);
+        }
+
+        // background color
         if (options.hasKey("backgroundColor")) {
             snackbarView.setBackgroundColor(options.getInt("backgroundColor"));
         }
 
+        // text color
         TextView snackbarText = snackbarView.findViewById(com.google.android.material.R.id.snackbar_text);
         snackbarText.setTextColor(textColor);
 
-        // Action
+        // action
         if (options.hasKey("action")) {
             ReadableMap actionOption = options.getMap("action");
             String actionText = getOptionValue(actionOption, "text", "");

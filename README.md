@@ -44,13 +44,14 @@ Where `duration` is
 
 ### `Snackbar.show(snackbarOptions)`
 
-| Key             | Type   | Default                | description                      |
-| --------------- | ------ | ---------------------- | -------------------------------- |
-| message         | string | required               | The message to display           |
-| duration        | number | Snackbar.LENGTH_SHORT  | How long to display message      |
-| textColor       | string | 'white'                | The color of message text        |
-| backgroundColor | string | undefined, 'dark gray' | The color of snackbar background |
-| action          | object | undefined              | The action button on snackbar    |
+| Key             | Type    | Default                | description                                                                                     |
+| --------------- | ------- | ---------------------- | ----------------------------------------------------------------------------------------------- |
+| message         | string  | required               | The message to display                                                                          |
+| duration        | number  | Snackbar.LENGTH_SHORT  | How long to display message                                                                     |
+| textColor       | string  | 'white'                | The color of message text                                                                       |
+| backgroundColor | string  | undefined, 'dark gray' | The color of snackbar background                                                                |
+| action          | object  | undefined              | The action button on snackbar                                                                   |
+| rtl             | boolean | false                  | To display snackbar right-to-left direction (add `android:supportsRtl="true"` in manifest file) |
 
 Where `duration` is
 
