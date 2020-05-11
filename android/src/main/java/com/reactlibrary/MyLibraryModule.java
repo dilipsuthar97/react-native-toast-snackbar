@@ -2,6 +2,7 @@ package com.reactlibrary;
 
 import android.graphics.Color;
 import android.os.Build;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -32,6 +33,14 @@ public class MyLibraryModule extends ReactContextBaseJavaModule {
     private static final String DURATION_SNACKBAR_SHORT = "SNACKBAR_SHORT";
     private static final String DURATION_SNACKBAR_LONG = "SNACKBAR_LONG";
 
+    // toast gravity static
+    static class ToastGravity {
+        static final String BOTTOM = "BOTTOM";
+        static final String TOP = "TOP";
+        static final String LEFT = "LEFT";
+        static final String RIGHT = "RIGHT";
+    }
+
     public MyLibraryModule(ReactApplicationContext reactContext) {
         super(reactContext);
         this.reactContext = reactContext;
@@ -47,8 +56,31 @@ public class MyLibraryModule extends ReactContextBaseJavaModule {
     public void showToast(ReadableMap options) {
         String message = getOptionValue(options, "message", "");
         int duration = getOptionValue(options, "duration", Toast.LENGTH_SHORT);
+        String gravityType = getOptionValue(options, "gravity", "");
 
-        Toast.makeText(reactContext, message, duration).show();
+        int gravity;
+        switch (gravityType) {
+            case ToastGravity.TOP:
+                gravity = Gravity.TOP | Gravity.CENTER_HORIZONTAL;
+                break;
+            case ToastGravity.LEFT:
+                gravity = Gravity.START | Gravity.CENTER_VERTICAL;
+                break;
+            case ToastGravity.RIGHT:
+                gravity = Gravity.END | Gravity.CENTER_VERTICAL;
+                break;
+            default:
+                gravity = Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL;
+                break;
+        }
+
+        int yOffset = gravityType.equals("") ? 90 : 0;
+
+        Toast toast = Toast.makeText(reactContext, message, duration);
+        if (options.hasKey("gravity")) {
+            toast.setGravity(gravity, 0, yOffset);
+        }
+        toast.show();
     }
 
     /**

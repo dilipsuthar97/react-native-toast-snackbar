@@ -6,6 +6,7 @@ const { RNToastSnackbar } = NativeModules;
 interface ToastOptions {
 	message: string;
 	duration?: number;
+	gravity?: 'TOP' | 'BOTTOM' | 'LEFT' | 'RIGHT';
 }
 interface IToast {
 	LENGTH_SHORT: number;

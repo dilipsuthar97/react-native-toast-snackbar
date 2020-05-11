@@ -32,15 +32,18 @@ Snackbar.show({
 
 ### `Toast.show(toastOptions)`
 
-| Key      | Type   | Default            | description                 |
-| -------- | ------ | ------------------ | --------------------------- |
-| message  | string | required           | The message to display      |
-| duration | number | Toast.LENGTH_SHORT | How long to display message |
+| Key      | Type   | Default            | description                   |
+| -------- | ------ | ------------------ | ----------------------------- |
+| message  | string | required           | The message to display        |
+| duration | number | Toast.LENGTH_SHORT | How long to display message   |
+| gravity  | string | undefined          | Position of the toast message |
 
 Where `duration` is
 
 1. `Toast.LENGTH_SHORT`
 2. `Toast.LENGTH_LONG`
+
+Where gravity is `'TOP' | 'BOTTOM' | 'LEFT' | 'RIGHT'`
 
 ### `Snackbar.show(snackbarOptions)`
 
