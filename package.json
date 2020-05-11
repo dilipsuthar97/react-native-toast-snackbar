@@ -1,7 +1,7 @@
 {
 	"name": "react-native-toast-snackbar",
 	"title": "React Native Toast Snackbar",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"description": "Android Native Toast and Snackbar popup",
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",
