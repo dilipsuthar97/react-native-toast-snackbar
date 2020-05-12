@@ -1,5 +1,8 @@
 # react-native-toast-snackbar
 
+![Version](https://img.shields.io/github/v/release/dilipsuthar97/react-native-toast-snackbar?style=flat-square)
+![License](https://img.shields.io/github/license/dilipsuthar97/react-native-toast-snackbar?style=flat-square)
+
 ## 📖 Getting started
 
 `$ npm install react-native-toast-snackbar --save`
