@@ -7,6 +7,8 @@ interface ToastOptions {
 	message: string;
 	duration?: number;
 	gravity?: 'TOP' | 'BOTTOM' | 'LEFT' | 'RIGHT';
+	textColor?: string;
+	backgroundColor?: string;
 }
 interface IToast {
 	LENGTH_SHORT: number;
@@ -40,7 +42,19 @@ const Toast: IToast = {
 	LENGTH_SHORT: RNToastSnackbar.TOAST_SHORT,
 	LENGTH_LONG: RNToastSnackbar.TOAST_LONG,
 	show(toastOptions: ToastOptions) {
-		RNToastSnackbar.showToast(toastOptions);
+		const textColor =
+			toastOptions.textColor && processColor(toastOptions.textColor);
+		const backgroundColor =
+			toastOptions.backgroundColor &&
+			processColor(toastOptions.backgroundColor);
+
+		const options = {
+			...toastOptions,
+			textColor,
+			backgroundColor,
+		};
+
+		RNToastSnackbar.showToast(options);
 	},
 };
 
@@ -60,7 +74,7 @@ const Snackbar: ISnackbar = {
 			action && action.textColor && processColor(action.textColor);
 		const onPressCallback = (action && action.onPress) || (() => {});
 
-		const nativeOptions: SnackbarOptions = {
+		const options: SnackbarOptions = {
 			...snackbarOptions,
 			textColor,
 			backgroundColor,
@@ -73,7 +87,7 @@ const Snackbar: ISnackbar = {
 				: undefined,
 		};
 
-		RNToastSnackbar.showSnackbar(nativeOptions, onPressCallback);
+		RNToastSnackbar.showSnackbar(options, onPressCallback);
 	},
 };
 

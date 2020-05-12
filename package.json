@@ -1,7 +1,7 @@
 {
 	"name": "react-native-toast-snackbar",
 	"title": "React Native Toast Snackbar",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"description": "Android Native Toast and Snackbar popup",
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",
@@ -20,14 +20,15 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/github_account/react-native-toast-snackbar.git",
-		"baseUrl": "https://github.com/github_account/react-native-toast-snackbar"
+		"url": "git+https://github.com/dilipsuthar97/react-native-toast-snackbar.git",
+		"baseUrl": "https://github.com/dilipsuthar97/react-native-toast-snackbar"
 	},
 	"keywords": [
 		"react-native",
 		"toast",
 		"android",
-		"design"
+		"design",
+		"snackbar"
 	],
 	"author": {
 		"name": "Dilip Suthar",

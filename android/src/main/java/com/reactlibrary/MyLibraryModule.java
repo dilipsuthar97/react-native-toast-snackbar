@@ -3,6 +3,7 @@ package com.reactlibrary;
 import android.graphics.Color;
 import android.os.Build;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -21,6 +22,7 @@ import java.util.Map;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 
 public class MyLibraryModule extends ReactContextBaseJavaModule {
 
@@ -58,6 +60,7 @@ public class MyLibraryModule extends ReactContextBaseJavaModule {
         int duration = getOptionValue(options, "duration", Toast.LENGTH_SHORT);
         String gravityType = getOptionValue(options, "gravity", "");
 
+        // gravity
         int gravity;
         switch (gravityType) {
             case ToastGravity.TOP:
@@ -80,6 +83,24 @@ public class MyLibraryModule extends ReactContextBaseJavaModule {
         if (options.hasKey("gravity")) {
             toast.setGravity(gravity, 0, yOffset);
         }
+
+        // custom view
+        if (options.hasKey("backgroundColor") || options.hasKey("textColor")) {
+            LayoutInflater inflater = LayoutInflater.from(reactContext);
+            View view = inflater.inflate(R.layout.toast_layout, null);
+            CardView toastBg = ((View) view).findViewById(R.id.toast_container);
+            TextView toastText = ((View) view).findViewById(R.id.tv_msg);
+            toastText.setText(message);
+
+            int backgroundColor = getOptionValue(options, "backgroundColor", Color.BLACK);
+            int textColor = getOptionValue(options, "textColor", Color.WHITE);
+
+            toastBg.setCardBackgroundColor(backgroundColor);
+            toastText.setTextColor(textColor);
+
+            toast.setView(view);
+        }
+
         toast.show();
     }
 

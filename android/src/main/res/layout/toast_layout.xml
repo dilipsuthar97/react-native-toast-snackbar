@@ -7,17 +7,19 @@
     android:orientation="vertical"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="16dp"
+    app:cardCornerRadius="22dp"
     app:cardElevation="3dp"
-    app:cardBackgroundColor="@android:color/white"
+    app:cardBackgroundColor="@android:color/black"
     app:contentPadding="16dp">
 
     <TextView
-        android:id="@+id/text_msg"
+        android:id="@+id/tv_msg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="16sp"
-        android:textColor="@android:color/black"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:textColor="@android:color/white"
         tools:text="Toast text"/>
 
 </androidx.cardview.widget.CardView>
